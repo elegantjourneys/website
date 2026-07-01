@@ -1,0 +1,680 @@
+<script>
+   /* VARIABLE FOR PRICE CALENDAR */
+   var previousMonth = '';
+   var previousYear = '';
+   
+   var currentMonth = '';
+   var currentYear = '';
+   
+   var nextMonth = '';
+   var nextYear = '';
+   
+   var totalDaysOfMonth = '';
+   
+   var roomType='2';
+   var hotelType='5';
+   var selectedCurrencyCode='';
+   
+</script>
+<style>
+   /* css for calender goes here */
+   .tdWeekDays{font-size;10px; font-weight:normal; color:#1C7896; border:1px solid #cccccc; font-family:Arial, Helvetica, sans-serif; height:35px; width:132px; text-align:center;}
+   .tdCalenderDays{font-size;10px; font-weight:normal; color:#000000; border:1px solid #cccccc; font-family:Arial, Helvetica, sans-serif; text-align:center; width:132px; height:100px;}
+   .redButtonLink{margin: 14px 4px 0 0;  padding: 7px; background-color:#B80000; color:#ffffff; min-width:120px;}
+   .topContactInfo{float:right; margin-top:20px; color:#ffffff; font-size:13px; font-family: Arial,Helvetica,sans-serif;}
+   .selectGrey{width:120px; border:1px solid #848383; height:20px;}
+   .disabledDate{background-color:#EFEFEF}
+   .profitPrice{ font-size: 15px; color: #428500; font-weight:500;}
+   .discountPrice{color: #c94a30; font-size:14px;}
+   a:hover,a:focus{
+   text-decoration: none;
+   outline: none;
+   }
+   .calender-tab{ display: inherit;margin: 30px 0; }
+   .calender-tab .nav-tabs{
+   display: table-cell;
+   border: none;
+   position: relative;
+   }
+   .select-holder {
+   background: #efefef;
+   padding: 10px 15px 20px;
+   border-radius: 4px;
+   }
+   .calender-tab .nav-tabs li{
+   float: none;
+   width: 100%;
+   padding: 0 2px;
+   }
+   .calender-tab .nav-tabs li a{
+   display: block;
+   padding: 10px 18px;
+   margin: 0;
+   font-size: 14px;
+   font-weight: 600;
+   color: #505050;
+   text-transform: capitalize;
+   text-align: left;
+   border-radius: 0;
+   border: none;
+   overflow: hidden;
+   z-index: 1;
+   position: relative;
+   transition: all 0.3s ease 0s;
+   background:rgba(241, 241, 241, 0.8);
+   width:200px;
+   }
+   .jcf-select.jcf-select-filter-select
+   {
+   background: #fff;
+   }
+   .jcf-select.jcf-select-filter-select .jcf-select-opener:after{
+   color:#000;
+   }
+   .calender-tab .nav-tabs li a:hover,
+   .calender-tab .nav-tabs li.active a{
+   color: #fff;
+   background: transparent;
+   border: none;
+   }
+   .calender-tab .nav-tabs li a:before,
+   .calender-tab .nav-tabs li a:after{
+   content: "";
+   width: 100%;
+   height: 100% ;
+   background: #03a9f4;
+   position: absolute;
+   top: 0;
+   left: 100%;
+   z-index: -1;
+   transition: all 0.3s ease 0s;
+   }
+   .calender-tab .nav-tabs li a:after{
+   width: 5px;
+   background: #03A9F4;
+   /*left: 97%;*/
+   }
+   .calender-tab .nav-tabs li.active a:before,
+   .calender-tab .nav-tabs li a:hover:before,
+   .calender-tab .nav-tabs li.active a:after,
+   .calender-tab .nav-tabs li a:hover:after{ left: 0; }
+   .calender-tab .tab-content{
+   display: table-cell;
+   padding: 0px 25px 0 0;
+   font-size: 15px;
+   color: #505050;
+   line-height: 24px;
+   letter-spacing: 1px;
+   text-align: justify;
+   vertical-align: top;
+   position: relative;
+   }
+   .calender-tab .nav-tabs > li
+   {
+   display: inline-flex;
+   top: 38px;
+   }
+   .calender-tab .tab-content h3{
+   font-size: 24px;
+   color: #505050;
+   margin: 0 0 5px 0;
+   }
+   @media only screen and (max-width: 479px){
+   .calender-tab .nav-tabs {
+   display: block;
+   width: 100%;
+   border-right: none;
+   }
+   .calender-tab .nav-tabs li{ margin-bottom: 10px; }
+   .calender-tab .nav-tabs li a { padding: 10px; }
+   .calender-tab .nav-tabs li a:before{
+   top: 100%;
+   left: 0;
+   }
+   .calender-tab .nav-tabs li a:after{
+   width: 100%;
+   height: 4px;
+   top: 90%;
+   left: 0;
+   }
+   .calender-tab .nav-tabs li.active a:before,
+   .calender-tab .nav-tabs li a:hover:before,
+   .calender-tab .nav-tabs li.active a:after,
+   .calender-tab .nav-tabs li a:hover:after{ top: 0; }
+   .calender-tab .tab-content {
+   display: block;
+   padding: 20px 15px 5px;
+   }
+   .calender-tab .tab-content h3{ font-size: 18px; }
+   }
+   .star-rating{
+   color:#FF4500;
+   }
+   .jcf-select-text img {
+   margin: 8px 0!important;
+   }
+   @media(max-width:375px){
+	.calender_prev{
+		padding-left:0!important;
+	}	   
+   }
+   @media(max-width:812px){
+	.calender_price {
+		width: 100%!important;
+		margin-bottom: 1.5rem!important;
+		border-collapse: collapse;
+		table-layout: fixed!important;
+		background-color: #ffffff;
+	}
+	.tdWeekDays{
+		width:100%;
+	}
+	.tdCalenderDays{
+		width:100%;
+	}
+	.calender_prev{
+		width:100%!important;
+		padding-left:50px;
+	}
+	.tdCalenderDaystr{
+		width:100%!important;
+	}
+	.tdCalenderDaystd{
+		text-align:center!important;
+	}
+	.tdCalenderDaystdtr{
+		height:30px!important;
+	}
+	.calender-tab .tab-content{
+	display: table-row!important;
+	}
+	.calender-tab .nav-tabs > li{
+		top: 14px!important;
+	}
+	.calender-tab .nav-tabs li a{
+	width:100%!important;
+	}
+	.calender-tab .nav-tabs{
+	display:inline-table!important;
+	}
+	}
+@media(max-width:414px){
+.calender-tab .nav-tabs > li {
+    top: -10px!important;
+}
+.calender-tab .nav-tabs li {
+    margin-bottom: 0;
+}
+.calender_prevt{
+	font-size:12px!important;
+}
+.currentYearct
+{
+	padding: 0px 15px!important;
+}
+}
+.jcf-select-drop.jcf-select-filter-select .jcf-option {
+    padding-left: 15px;
+    color: #333!important;
+}
+.jcf-select-drop.jcf-select-filter-select .jcf-option.jcf-hover {
+    background: #9c9b9b!important;
+}	
+.jcf-select-drop.jcf-select-filter-select .jcf-list {
+    background: #f3f3f3;
+}
+</style>
+<?php
+	$lowestPriceData = array(
+								"lowest_price_id"		=>		$lowestPriceId,
+								"tour_page_id"			=>		$tourPageId
+					);
+	
+	$lowestPriceDetail = $objCMSTourPrice->getLowestPriceDetail($lowestPriceData);
+	
+	$calendarHotelType = $lowestPriceDetail['hotel_type_id'];
+	$calendarRoomType = $lowestPriceDetail['room_type'];
+	$calendarPriceYear = $lowestPriceDetail['price_year'];
+	$calendarPriceMonth = $lowestPriceDetail['price_month'];
+?>
+    
+  <div class="layout-holder">
+     
+      <div class="select-holder2">
+         <div class="filter-slide">
+            <div class="row">
+            
+             <div class="hd-bg-colr">
+               <div class="col-md-4">
+                  
+                  <select class="filter-select jcf-hidden" id="selectHotelType" onchange="getPriceOfTheMonth();">
+					 <option value=""  selected="">Select Hotel</option>
+					 <option value="11">Luxury Hotels (5-Star+++)</option>
+					                     
+                  </select> 
+               </div>
+              
+               <div class="col-md-4">
+                    
+                    <input id="enquiryTravelDate" class="form-control ht-cal" type="text"  name="enquiryArrivalDate" placeholder="Please select a date." readonly>
+				</div>
+                
+            
+               
+               
+              <div class="col-md-3">
+                 
+                  <button type="submit" class="btn btn-default" id="" style="display:inline; background-color:#f39820;">SHOW PRICE </button>  
+                   
+               </div>
+               
+            </div>
+            
+           
+           <!-- second row-->
+           
+           
+           <div class="brd-btm">
+               <div class="col-md-4">
+                   
+                   <div class="htl-nm">Taj Hotel</div>
+             </div>
+              
+               
+                
+                
+               <div class="col-md-4">
+                 
+                   <div class="ht-price" style="" valign="top" id="">
+                   <span class="profitPrice2">USD 2,594 </span> 
+                   <br><strike class="discountPrice2">$5,189</strike>
+                   </div>
+                   
+                   
+                   
+                   
+               </div>
+               
+               
+              <div class="col-md-3">
+                 
+                   <button type="submit" class="btn btn-default" id="" style="display:inline;">BOOK</button>
+                   
+               </div>
+               
+               <div class="col-md-12"><div class="spac-lin"></div></div> 
+               
+            </div>
+            
+             <!-- third row-->
+            
+            
+            <div class="brd-btm">
+               <div class="col-md-4">
+                    
+                   <div class="htl-nm">Taj Hotel</div>
+             </div>
+              
+               
+                
+                
+               <div class="col-md-4">
+                 
+                   <div class="ht-price" style="" valign="top" id="">
+                   <span class="profitPrice2">USD 2,594 </span> 
+                   <br><strike class="discountPrice2">$5,189</strike>
+                   </div>
+                   
+                   
+                   
+                   
+               </div>
+               
+               
+              <div class="col-md-3">
+                 
+                   <button type="submit" class="btn btn-default" id="" style="display:inline;">BOOK</button>
+                   
+               </div>
+               
+               <div class="col-md-12"><div class="spac-lin"></div></div> 
+               
+            </div>
+            
+               
+               
+               
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+<script>
+	previousMonth = '<?=$displayInformation['previous_month']?>';
+	previousYear = '<?=$displayInformation['previous_year']?>';
+
+	currentMonth = '<?=$displayInformation['current_month']?>';
+	currentYear = '<?=$displayInformation['current_year']?>';
+
+	nextMonth = '<?=$displayInformation['next_month']?>';
+	nextYear = '<?=$displayInformation['next_year']?>';
+
+	totalDaysOfMonth = '<?=$displayInformation['total_days']?>';
+
+	
+
+	function getMonthCalendar(month, year)
+	{
+		
+		$.ajax({
+			  url: '<?=WEBROOT?>repositery/cache/calendar/month_calendar_'+month+'_'+year+'.txt',
+			  dataType: 'json',
+			  success: function(json, xhr, textStatus) 
+			  {
+						$('#priceCalendarArea').html(json.display_string);
+
+						previousMonth = json.previous_month;
+						previousYear = json.previous_year;
+
+						currentMonth = json.current_month;
+						currentYear = json.current_year;
+
+						nextMonth = json.next_month;
+						nextYear = json.next_year;
+
+						totalDaysOfMonth = json.total_days;
+						
+						getPriceOfTheMonth();
+						
+						assignedTopMonthValue();
+					
+			  },
+			  error: function(xhr, textStatus) {
+					
+
+					$.ajax({
+							  url: '<?=WEBROOT?>ajax/jquery-cost.php',
+							  type: 'post',
+							  data: {method:'getMonthCalendar', month:month, year:year },
+							  dataType: 'json',
+							  success: function(json) 
+							  {
+									$('#priceCalendarArea').html(json.display_string);
+
+									previousMonth = json.previous_month;
+									previousYear = json.previous_year;
+
+									currentMonth = json.current_month;
+									currentYear = json.current_year;
+
+									nextMonth = json.next_month;
+									nextYear = json.next_year;
+
+									totalDaysOfMonth = json.total_days;
+									
+									getPriceOfTheMonth();
+									
+									assignedTopMonthValue();
+							  }
+						  });
+			  
+			  
+			  
+			  
+			  } 
+		  });
+		
+		 return false;
+	}
+
+	function assignedTopMonthValue()
+	{
+		$('#selectPriceMonthTop').val(currentMonth+'####'+currentYear);
+		
+		var monthName = getMonthText(currentMonth);
+		var selectHtml = '<span class="jcf-select jcf-unselectable jcf-select-filter-select jcf-select-jcf-hidden"><span class="jcf-select-text"><span class="">'+monthName+' '+currentYear+'</span></span><span class="jcf-select-opener"></span></span>';
+		$('#selectPriceMonthTop').next().html(selectHtml);
+
+	}
+
+	function getMonthText(month)
+	{
+		var monthName = '';
+		
+		switch(month)
+		{
+			case '1':
+			case '01':
+					 monthName = 'January';
+				break
+			case '2':
+			case '02':
+					monthName = 'February';
+				break;
+			case '3':
+			case '03':
+					monthName = 'March';
+				break;
+			case '4':
+			case '04':
+					monthName = 'April';
+				break;
+			case '5':
+			case '05':
+					monthName = 'May';
+				break;
+			case '6':
+			case '06':
+					monthName = 'June';
+				break;
+			case '7':
+			case '07':
+					monthName = 'July';
+				break;
+			case '8':
+			case '08':
+					monthName = 'August';
+				break;
+			case '9':
+			case '09':
+					monthName = 'September';
+				break;
+			case '10':
+					monthName = 'October';
+				break;
+			case '11':
+					monthName = 'November';
+				break;
+			case '12':
+					monthName = 'December';
+				break;
+		}
+
+		return monthName;
+
+	}
+
+	function resetPriceList()
+	{
+		var displayString = '<img src="https://www.elegantjourneys.com/img/ajax-small-horizontal-loader.gif"></span><span id="priceDayData1"></span>';
+		for(var i=0;i<=totalDaysOfMonth;i++)
+		{
+			if(document.getElementById('priceDay'+i))
+			{
+				$('#priceDay'+i).html(displayString);
+			}
+
+			if(document.getElementById('priceDate'+i))
+			{
+				$('#priceDate'+i).html('');
+			}
+		}
+		
+	}
+
+
+		
+	function getPriceOfTheMonth()
+	{
+		
+		resetPriceList();
+
+		selectedCurrencyCode = $('#userSelectedCurrency').val();
+		//roomType = $('#selectRoomType').val();
+		roomType = '2';
+		hotelType = $('#selectHotelType').val();
+		var assignedDate = new Array();
+		
+
+		$.ajax({
+			  url: '<?=WEBROOT?>ajax/jquery-cost.php',
+			  type: 'post',
+			  data: {method:'getCustomTourPriceByHotel', event_tax:'<?=$tourPriceParameters['event_tax']?>',vehicle_tax:'<?=$tourPriceParameters['vehicle_tax']?>',vehicleId:'<?=$tourPriceParameters['vehicle_id']?>',tourId:'<?=$tourDetailId?>', noOfPerson:roomType ,mislaneous_cost_price:'<?=$tourPriceParameters['mislaneous_cost_price']?>',profit:'<?=$tourPriceParameters['profit']?>', discount:'<?=$tourPriceParameters['discount']?>',selectedCurrencyCode:selectedCurrencyCode, tourPageId:'<?=$tourPageId?>',hotel_type_id:hotelType, current_month:currentMonth, current_year:currentYear, total_days:totalDaysOfMonth, room_type:roomType},
+			  dataType: 'json',
+			  success: function(json) 
+			  {
+					for(var i=0;i<json.length;i++)  				 
+					{
+						var displayStringBook = '';
+
+						if(json[i].block_date_exception=='y'||json[i].price_exception=='y')
+						{
+							
+							//var displayString = '<span><a href="#tourBookingForms">Request Price</a></span>';
+							var displayString = '&nbsp;<a data-fancybox="" data-type="iframe" data-src="<?=WEBROOT?>select_room_popup.php?eid='+json[i].unsaturated_link_code+'" class="bookbtn"  style="padding: 3px 8px;font-size:10px;border-radius:5px;background:#cf3720;color:#fff;position:relative;margin-left:2px; cursor:pointer;" >Request Price</a>';
+						}
+						else
+						{
+							if(json[i].currency_sign+json[i].profit_price==json[i].currency_sign+json[i].discount_price)
+							{
+								var displayString = '<span class="profitPrice">'+json[i].currency_code+' '+json[i].discount_price+'</span>';
+
+								displayStringBook ='&nbsp;<a data-fancybox="" data-type="iframe" data-src="<?=WEBROOT?>select_room_popup.php?eid='+json[i].link_code+'" class="bookbtn"  style="padding: 3px 8px;font-size:10px;border-radius:5px;background:#cf3720;color:#fff;position:relative;margin-left:2px; cursor:pointer;" >Select</a>';
+
+								$('#priceDay'+json[i].current_day).html()
+							}
+							else
+							{
+								var displayString = '<span class="profitPrice">'+json[i].currency_code+' '+json[i].profit_price+' </span> <br /><strike class="discountPrice">'+json[i].currency_sign+json[i].discount_price+'</strike>';
+
+								displayStringBook = '&nbsp;<a data-fancybox="" data-type="iframe" data-src="<?=WEBROOT?>select_room_popup.php?eid='+json[i].link_code+'" class="bookbtn"    style="padding: 3px 8px;font-size:10px;border-radius:5px;background:#cf3720;color:#fff;position:relative; ;margin-left:2px; cursor:pointer;"  >Select</a>';
+							}
+							
+						}
+
+						
+						$('#priceDay'+json[i].current_day).html(displayString);
+
+						if(displayStringBook)
+						{
+							$('#priceDate'+json[i].current_day).html(displayStringBook);
+						}
+						
+						if(assignedDate.length==0)
+						{
+							assignedDate[0]= json[i].current_day;
+						}
+						else
+						{
+							assignedDate[(assignedDate.length)]= json[i].current_day;
+						}
+
+						
+					}
+					
+				   var noAction = true;
+				  for(var i=1; i<=31; i++)
+				  {
+					noAction = true;
+					for(var j=0; j<assignedDate.length; j++)
+					{
+						if(assignedDate[j]==i)
+						{
+							noAction = false;
+							break;
+						}
+						
+					}
+
+					if(noAction)
+					{
+						if(document.getElementById('priceDay'+i))
+						{
+							$('#priceDay'+i).css('display','none');
+						}
+					}
+
+				  }
+
+
+				  activateFancybox();
+			  }
+		  });
+	}
+
+	function selectMonthCalendar()
+	{
+		var selectedValue = $('#selectPriceMonth').val();
+		var filterSelection = selectedValue.split('####');
+		var month = filterSelection[0];
+		var year = filterSelection[1];
+
+		getMonthCalendar(month, year);
+	}
+
+	function selectMonthCalendarTop()
+	{
+		var selectedValue = $('#selectPriceMonthTop').val();
+		var filterSelection = selectedValue.split('####');
+		var month = filterSelection[0];
+		var year = filterSelection[1];
+
+		getMonthCalendar(month, year);
+	}
+
+
+	function requestBooking(selectedDay, tourPrice, offerPrice=0)
+	{
+		var hotelLevel = $('#selectHotelType').val();
+		//var roomType = $('#selectRoomType').val();
+		var roomType = '2';
+		var currencyCode = $('#userSelectedCurrency').val();
+		var selectedDateRange = $('#selectPriceMonthTop').val();
+		var tourId = '<?=$tourDetailId?>';
+		var tourPageId = '<?=$tourPageId?>';
+		var pageUrl = '<?=$objCMSTourPrice->getPageUrl()?>';
+
+		$.ajax({
+			  url: '<?=WEBROOT?>ajax/jquery-booking.php',
+			  type: 'post',
+			  data: {method:'initiateBooking', hotel_level:hotelLevel,room_type:roomType,currency_code:currencyCode,date_range:selectedDateRange, tour_id:tourId, tour_page_id:tourPageId,page_url:pageUrl, tour_day:selectedDay, offerPrice, tourPrice, step:'intiate' },
+			  dataType: 'json',
+			  success: function(json) 
+			  {
+					if(json.result=='success')
+					{
+						window.location=json.redirect_url;
+					}
+			  }
+		  });
+		
+	}
+
+	function activateFancybox()
+	{
+		/*$('[data-fancybox]').fancybox({
+
+			smallBtn : true,
+			fullScreen : false,
+			iframe : {
+				preload : true
+			}
+		}); */
+
+
+	}
+
+	
+
+</script>

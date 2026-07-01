@@ -1,0 +1,346 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+form{
+	margin:0;
+	padding:0;
+}
+.padding5px {
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #606060;
+}
+.txt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #606060;
+}
+
+.dark_red
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #CC0000;
+}
+.whiteTxt:link {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+.whiteTxt:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:none;
+}
+.whiteTxt:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+.bldTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #606060;
+}
+
+.headTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#5F5F5F;
+}
+
+.bldTxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight:bold;
+	color: #606060;
+}
+
+.txtfld{
+	border:1px solid #908D28;
+}
+.bigWhite{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #ffffff;
+}
+.menuLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #787425 ;
+	text-decoration:none;
+}
+a.menuLinks {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #787425 ;
+	text-decoration:none;
+}
+.menuLinks:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #787425 ;
+	text-decoration:underline;
+}
+.warning {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FF0000;
+}
+.vwarning {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #FF0000;
+	vertical-align:top;
+}
+.orangetxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #c26900;
+	text-decoration:none;
+}
+a.orangetxt {
+	text-decoration:none;
+}
+a.orangetxt:hover {
+	text-decoration:underline;
+}
+
+
+.breadcrumb {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #c26900;
+	text-decoration:none;
+}
+a.breadcrumb {
+	text-decoration:none;
+}
+a.breadcrumb:hover {
+	text-decoration:underline;
+}
+
+.title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #787425  ;
+	font-weight:bold;
+	background:#FFFFFF;
+}
+.heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #606060;
+	font-weight:bold;
+}
+.oddRow {
+background-color: #F6F6F6;
+}
+.evenRow {
+	background-color: #FFFFFF;
+} 
+.button{
+	font:11px arial;
+	background:#fff;
+	border:1px solid #000;
+}
+.blueBackground {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#ffffff;
+	width:100%;
+	height:30px;
+	padding-left:15px;
+	background-color:#009E7D;
+}
+.adminGrey {
+	background : url(../../images/topGreyBar.jpg);
+	padding-left:10px;
+	font:bold 12px arial;
+	color:#606060;
+}
+.menuLeft {
+    border-bottom:1px solid #ffffff;
+	padding-left:25px;
+	height:25px;
+	text-align:left;
+	background-color:#009E7D;
+	background-repeat:repeat-y;
+	background-image:url(../images/menuback.gif);
+ }
+.menuBoldText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #787425  ;
+}
+a.menuBoldText {
+	text-decoration:none;
+}
+a.menuBoldText:hover {
+	text-decoration:underline;
+}
+ .rightBorder {
+	border-right:1px solid #67631F;
+ }
+ .subMenu {
+ padding-left:10px;
+ margin-left:5px;
+ background : url(../../images/plus.jpg);
+ background-repeat:no-repeat;
+ }
+ .greyBorder {
+ border:1px solid #67631F;
+ }
+ 
+ .style1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-size: 12px;
+}
+
+
+ #header{
+height:80px;
+text-align:left;
+border-bottom:15px solid #474F72;
+}
+
+#header_top{
+height:80px;
+}
+
+#header_top h1{
+font-family:Arial, Helvetica, sans-serif;
+color:#ffffff;
+font-size:34px;
+font-weight:normal;
+padding:0px 0px 36px 0px;
+margin:0px;
+}
+#logo{
+float:left;
+text-align:left;
+}
+.clear{
+clear:both;
+}
+#footer{
+height:20px;
+text-align:center;
+background-color:#474F72;
+}
+.pad10{
+padding:10px;
+}
+.top12{
+padding-top:12px;
+}
+#boxbg{
+width:170px;
+height:203px;
+background-repeat:no-repeat;
+background-image:url(../images/box_bg.gif);
+}
+.admin_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#787425;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+a.admin_txt{
+font-family:Arial, Helvetica, sans-serif;
+color:#787425;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+a.admin_txt:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#787425;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+.admin_txt2{
+font-family:Arial, Helvetica, sans-serif;
+color:#ffffff;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+a.admin_txt2{
+font-family:Arial, Helvetica, sans-serif;
+color:#ffffff;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+a.admin_txt2:hover{
+font-family:Arial, Helvetica, sans-serif;
+color:#ffffff;
+font-size:12px;
+font-weight:bold;
+text-decoration:none;
+}
+.textbox2{
+width:180px;
+height:20px;
+border:1px solid #494949;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#494949;
+}
+
+.textarea{
+width:180px;
+height:60px;
+border:1px solid #494949;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+color:#494949;
+}
+.textbox{
+width:245px;
+height:26px;
+border:1px solid #246E99;
+}
+
+/*
+	drag and drop css
+*/
+
+.listing{list-style:none; width:1000px;}
+.listing li{width:1000px;  }
+.listing li td{ float:left; height:23px;  border-top:1px solid #000000; border-bottom:1px solid #000000; font-size:13px; font-family:Arial,Helvetica,sans-serif; padding-top:5px;  margin-bottom:4px;}
+.slNo{ width:60px; border-left:1px solid #000000;}
+.tourType{width:170px; }
+.tourDescription{width:600px;}
+.tourDays{border-right:1px solid #000000; width:130px;}
+
+#contentLeft ul{list-style:none; width:1000px;}
+#contentLeft li{width:98%;  }
+#contentLeft li td{  height:23px;  border-top:1px solid #5D7F00; border-bottom:1px solid #5D7F00; font-size:13px; font-family:Arial,Helvetica,sans-serif; padding-top:5px; padding-bottom:5px; margin-bottom:4px; padding-left:12px;}
+
+
+/*
+	drag and drop css ends here
+*/

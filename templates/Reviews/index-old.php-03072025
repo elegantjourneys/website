@@ -1,0 +1,113 @@
+<div class="col-lg-9 mx-lg-auto mx-3 mt-5 pt-4">
+	<div class="py-5">
+		<div class="text-dark fw-bolder" style="text-align:center !important;"><img src="<?=WEBROOT?>version1/image/trip-logo.png" width='200' height="100"  /></div>
+		<!--<div class="ms-auto d-flex">
+			<div class="me-2"><i class="fa fa-upload" aria-hidden="true"></i></div>
+			<div><i class="fa fa-gratipay" aria-hidden="true"></i></div>
+		</div>-->
+	</div>
+	<div class="d-md-flex flex-column">
+		<div class="d-md-flex mb-3">
+			<div class="d-flex k align-items-center"><i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i><!--<span class="ms-2">4 Reviews </span>-->
+			</div>
+			<div class="k ms-2">
+#949 of 2,172 Tours &amp; Activities in New Delhi</div>
+			<div class="">City Tours • Multi-day Tours • Historical &amp; Heritage Tours • Private Tours</div>
+		</div>
+		<!--<div class="d-flex">
+			<div class="rev me-3"><a href="">Closed now</a></div>
+			<div class="rev"><a href="">Write Review</a></div>
+		</div>-->
+	</div>
+</div>
+
+
+<div class="col-lg-9 mx-lg-auto mx-3 py-3">
+  <div class="row">
+    <div class="col"><img src="<?=WEBROOT?>assets/image/journeys1.jpg" class="img-fluid" alt="..." /></div>
+    <div class="col"><img src="<?=WEBROOT?>assets/image/journeys2.jpg" class="img-fluid" alt="..." /></div>
+    <div class="col"><img src="<?=WEBROOT?>assets/image/journeys3.jpg" class="img-fluid" alt="..." /></div>
+    <div class="col"><img src="<?=WEBROOT?>assets/image/journeys4.jpg" class="img-fluid" alt="..." /></div>
+</div>
+</div>
+<?php foreach($tripadvisorReviewList['tripAdvisor'] as $review){ ?>
+<div class="col-lg-9 mx-lg-auto mx-3 mb-3">
+	<div class="border-top my-4"></div>
+	<div class="d-flex justify-content-between mb-3">
+		<div class="d-flex">
+			<div class="me-2">
+				<img src="<?=WEBROOT?>assets/image/jen.jpg" width='30' height="30" class="rounded-circle" alt="..." />
+			</div>
+			<div class="d-flex flex-column">
+				<div class="fw-bolder"><?=$review['name']?></div>
+				<div class="font-12"><?=$review['place']?></div>
+			</div>
+		</div>
+		<!--<div class="d-flex">
+			<div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+			<div class="mx-2">0</div>
+			<div>
+				•••
+			</div>
+		</div>-->
+	</div>
+	<div>
+		<div class="d-flex align-items-center"><i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+		</div>
+	<div class="py-1"><strong><?=$review['short_description']?></strong></div>
+	<div class="py-1"><?=date("M Y", strtotime($review['review_date']));?></div>
+	<p><?=$review['long_description']?></p>
+	</div>
+	<?php /* ?><div class="mt-2">
+		<div class="font-10 mb-2">Written 20 January 2020</div>
+		<div class="font-10">This review is the subjective opinion of a Tripadvisor member and not of Tripadvisor LLC. Tripadvisor performs checks on reviews as part of our industry-leading trust & safety standards. Read our transparency report to learn more.</div>
+	</div><?php */ ?>
+</div>
+<?php } ?>
+
+<?php /* ?>
+<div class="col-lg-9 mx-lg-auto mx-3 mb-3">
+	<div class="border-top my-4"></div>
+	<div class="d-flex justify-content-between mb-3">
+		<div class="d-flex">
+			<div class="me-2">
+				<img src="<?=WEBROOT?>assets/image/jen.jpg" width='30' height="30" class="rounded-circle" alt="..." />
+			</div>
+			<div class="d-flex flex-column">
+				<div class="fw-bolder">Jenny T</div>
+				<div class="font-12">St Leonards, • Australia74 contributions</div>
+			</div>
+		</div>
+		<div class="d-flex">
+			<div><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></div>
+			<div class="mx-2">0</div>
+			<div>
+				•••
+			</div>
+		</div>
+	</div>
+	<div>
+		<div class="d-flex align-items-center"><i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+				<i class="fa fa-circle green" aria-hidden="true"></i>
+		</div>
+	<div class="py-1">BEYOND MY EXPECTATIONS</div>
+	<div class="py-1">Apr 2023 • Friends</div>
+	<p>Absolutely everything. My expectations were exceeded far & away more than I thought. Perfection from day 1 to day 14. Amazing itinerary, the best driver, wonderful guides, sublime accommodation. If you plan to visit India, do yourself a favour & go with this co.</p>
+	</div>
+	<div class="mt-2">
+		<div class="font-10 mb-2">Written 20 January 2020</div>
+		<div class="font-10">This review is the subjective opinion of a Tripadvisor member and not of Tripadvisor LLC. Tripadvisor performs checks on reviews as part of our industry-leading trust & safety standards. Read our transparency report to learn more.</div>
+	</div>
+</div>
+<?php */ ?>

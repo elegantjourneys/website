@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Owl Carousel - Changelog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jQuery Responsive Carousel - Owl Carusel">
+    <meta name="author" content="Bartosz Wojciechowski">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="assets/css/bootstrapTheme.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- Owl Carousel Assets -->
+    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="owl-carousel/owl.theme.css" rel="stylesheet">
+
+    <!-- Prettify -->
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png">
+  </head>
+  <body>
+
+      <div id="top-nav" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li><a href="index.html"><i class="icon-chevron-left"></i> Back to Frontpage</a></li>
+              <li><a href="owl.carousel.zip" class="download download-on" data-spy="affix" data-offset-top="450">Download</a></li>
+            </ul>
+            <ul class="nav pull-left">
+              
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="changelog" class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>Changelog</h1>
+          
+          <div class="span12 log">
+          <span class="label label-success">v1.3.3</span> <span class="label">12.05.2014</span>
+            <ul>
+              <li>Fixed $.data issue. ( This resolved jQuery1.7.1 issues )</li>
+              <li>Added minified version by Google Closure compiler.</li>
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.3.2</span> <span class="label">13.01.2014</span>
+            <ul>
+              <li>Changed semantic versioning v1.32 > v1.3.2</li>
+              <li>Clean-up the code</li>
+              <li>Move out transitons styls to owl.transitions.css file</li>             
+
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.31</span> <span class="label">21.11.2013</span>
+            <ul>
+              <li>Fixed startDrag event</li>
+              <li>Included awesome <code>itemsCustom</code> function. <a href="demos/itemsCustom.html">See demo</a>. Big thanks to <a href="https://github.com/nchankov">Nik Chankov</a> for code, demo and description.</li>
+              <li>Fixed sync <a href="demos/sync.html">demo</a></li>
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.3</span> <span class="label">18.11.2013</span>
+            <ul>
+              <li>Fixed startDragging callback - now it pass correct "this" value</li>
+              <li>Updated owl status method with dragDirection information</li>
+              <li>Fixed updating prevItem on owl status object</li>
+              <li>Included support for lazy load background images</li>
+              <li>Added afterLazyLoad callback(thx JaySala)</li>
+              <li>Removed "opacity=0" style while using destroy method.</li>
+              <li>Fixed afterMove callback. Now its fire only when you successfull slide.</li>
+              <li>Disable drag gestures if there is no items outside viewport.</li>
+              <li><code>scrollByPage</code> works with darg gestures now. </li>
+              <li>Removed slide animation on changing browser width.</li>
+              <li>Added <a href="demos/owlStatus.html">Owl Status</a> and <a href="demos/sync.html">Sync</a> demos.</li>
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.29</span> <span class="label">11.11.2013</span>
+            <ul>
+              <li>Disabled right click event</li>
+              <li>Prevented ghostclicking on Android Chrome browser</li>
+              <li>Added visibleItems loop for future functions.</li>
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.28</span> <span class="label">30.10.2013</span>
+            <ul>
+              <li>Included <code>itemsScaleUp:false</code> method</li>
+              <li>Included <a href="demos/scaleup.html">scaleUp demo</a></li>
+              <li>Allowing to set options via data attributes ( THX zerghiomario)</li>
+            </ul>
+          </div>
+
+          <div class="span12 log">
+          <span class="label label-success">v1.27</span> <span class="label">17.10.2013</span>
+            <ul>
+              <li>Fixed <code>destroy</code> method</li>
+            </ul>
+        

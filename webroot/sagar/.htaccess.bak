@@ -1,0 +1,14 @@
+#Fix Rewrite
+#Options -Multiviews
+
+#Options +FollowSymLinks
+ 
+#RewriteEngine On
+RewriteBase /
+
+#RewriteCond %{HTTP_HOST} !^www\.elegant-incentives.com\.com$ [NC]
+#RewriteRule ^(.*)$ http://www\.elegant-incentives.com/$1 [R=301,L]
+
+RewriteRule ^tours/(.*)$ ./category.php?categoryurl=$1
+RewriteRule ^tiour/(.*)$ ./tour.php?toururl=$1
+#RewriteRule ^tour/(.*)$ ./tour.php?toururl=$1
